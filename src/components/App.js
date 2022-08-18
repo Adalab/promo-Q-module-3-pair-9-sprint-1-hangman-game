@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 import '../styles/App.scss';
 import { useState } from 'react';
@@ -7,6 +8,16 @@ function App() {
   const [lastLetter, setLastLetter] = useState('');
   const handleLastLetter = (ev) => {
     setLastLetter(ev.target.value);
+=======
+import { useState } from "react";
+import "../styles/App.scss";
+
+function App() {
+  const [numberOfErrors, setNumberOfErrors] = useState(0);
+  const handleIncrement = (ev) => {
+    ev.preventDefault();
+    setNumberOfErrors(numberOfErrors + 1);
+>>>>>>> 7d6c98d4db2ce4732fa76e5fec6fce132f99de5b
   };
   return (
     <div className="page">
@@ -41,7 +52,9 @@ function App() {
             </ul>
           </div>
           <form className="form">
-            <label className="title" htmlFor="last-letter">Escribe una letra:</label>
+            <label className="title" htmlFor="last-letter">
+              Escribe una letra:
+            </label>
             <input
               autoComplete="off"
               className="form__input"
@@ -52,9 +65,10 @@ function App() {
               value={lastLetter}
               onChange={handleLastLetter}
             />
+            <button onClick={handleIncrement}>Incrementar</button>
           </form>
         </section>
-        <section className="dummy error-5">
+        <section className={"dummy error-" + numberOfErrors}>
           <span className="error-13 eye"></span>
           <span className="error-12 eye"></span>
           <span className="error-11 line"></span>
